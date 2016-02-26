@@ -1,0 +1,1 @@
+完整阅读软件客户端app，本项目里面还有扫描功能，搜索本地书籍，不过扫码功能通过c++层实现的。 本项目来自：https://github.com/JayFang1993/ScanBook CaptureActivity主要是摄像头相关类，CaptureActivityHandler所有扫描消息都发到这个Handler类中

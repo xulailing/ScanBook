@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.scanbook"
+    android:versionCode="00200"
+    android:versionName="2.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="16" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="18" />
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="18" />
+
+    <application
+        android:name=".GlApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/appname"
+        android:theme="@style/CustomActionBarTheme" >
+        <activity
+            android:name=".view.activity.SplashActivity"
+            android:theme="@style/NoActionBar"
+            android:label="@string/appname" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.activity.MainActivity"
+            android:theme="@style/TransparentTheme"
+            android:label="@string/appname" >
+        </activity>
+        <activity
+            android:name=".view.activity.BookViewActivity"
+            android:theme="@style/CustomActionBarThemeBack"
+            android:label="@string/appname" >
+        </activity>
+        <activity
+            android:name=".view.activity.CaptureActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActionBarThemeBack"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+        <activity
+            android:name=".view.activity.AnnotationListActivity"
+            android:theme="@style/CustomActionBarThemeBack"
+            android:label="@string/appname" >
+        </activity>
+        <activity
+            android:name=".view.activity.SearchActivity"
+            android:theme="@style/CustomActionBarThemeBack"
+            android:label="@string/title_activity_search" >
+        </activity>
+        <activity android:name=".common.Share2Weixin"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".view.activity.GuidePageActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".view.activity.AboutActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/aboutme"
+            android:theme="@style/CustomActionBarThemeBack"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".common.Share2Weibo"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+        <!--广告SDK-->
+        <activity android:name="mp.dt.aytp"
+            android:theme="@android:style/Theme.Translucent" />
+        <service android:name="mp.dt.lidpce" />
+        <receiver android:name="mp.dt.rrlimp" >
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.intent.action.ACTION_SHUTDOWN" />
+                <action android:name="com.p.d" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <!--友盟SDK-->
+        <service
+            android:name="com.umeng.update.net.DownloadingService"
+            android:process=":DownloadingService" >
+        </service>
+        <activity
+            android:name="com.umeng.update.UpdateDialogActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+
+        <meta-data android:value="54ee96d3fd98c55fff000870" android:name="UMENG_APPKEY"></meta-data>
+        <meta-data android:value="All" android:name="UMENG_CHANNEL"/>
+    </application>
+</manifest>
